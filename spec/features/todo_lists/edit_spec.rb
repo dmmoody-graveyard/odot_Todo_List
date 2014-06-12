@@ -40,16 +40,25 @@ describe "Editing our todo list" do
 
 	it "displays an error with too short a title" do
 		update_todo_list todo_list: todo_list, title: "Hi"
+		title = todo_list.title
+		todo_list.reload
+		expect(todo_list.title).to eq(title)
 		expect(page).to have_content('error')
 	end
 
 	it "displays an error with no description" do
 		update_todo_list todo_list: todo_list, desciption: ""
+		description = todo_list.description
+		todo_list.reload
+		expect(todo_list.description).to eq(description)
 		expect(page).to have_content('error')
 	end
 
 	it "display an error with too short a desciption" do
 		update_todo_list todo_list: todo_list, desciption: "hi"
+		description = todo_list.description
+		todo_list.reload
+		expect(todo_list.description).to eq(description)
 		expect(page).to have_content('error')
 	end
 
