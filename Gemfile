@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
+gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
@@ -15,11 +15,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :developer, :test do
-	gem 'rspec-rails', '~> 2.0'
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
 end
 
 group :test do
-	gem 'capybara', '~>2.1.0'
-	gem 'shoulda-matchers', '~> 2.6.0'
+  gem 'capybara', '~> 2.1.0'
+  gem 'shoulda-matchers', '~> 2.4.0'
 end
