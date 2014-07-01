@@ -9,10 +9,14 @@ class UserSessionsController < ApplicationController
       flash[:success] = "Thanks for logging in!"
       redirect_to todo_lists_path
     else
-      logger.info params.inspect
-      logger.info(user.authenticate(params[:password]).to_s)
       flash[:error] = "There was a problem logging in. Please check your email and password."
       render action: 'new'
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    reset_session
+    redirect_to root_path, notice: "You have been logged out."
   end
 end
